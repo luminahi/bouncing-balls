@@ -1,4 +1,5 @@
 import Ball from "./Ball.js";
+import { randomDirection, randomSize } from "./random.js";
 
 addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
@@ -8,7 +9,7 @@ addEventListener("DOMContentLoaded", () => {
   const height = (canvas.height = window.innerHeight);
 
   function genBalls(): Ball[] {
-    const balls = new Array(10).fill({});
+    const balls = new Array(64).fill({});
 
     for (let i = 0; i < balls.length; i++) {
       const [velX, velY] = randomDirection(10);
@@ -18,7 +19,7 @@ addEventListener("DOMContentLoaded", () => {
         velX,
         velY,
         "black",
-        randomSize(72, 16),
+        randomSize(200, 16),
         ctx,
         width,
         height
@@ -28,17 +29,6 @@ addEventListener("DOMContentLoaded", () => {
     return balls;
   }
 
-  function randomSize(max: number, min: number) {
-    return Math.ceil(Math.random() * (max - min)) + min;
-  }
-
-  function randomDirection(range: number) {
-    const middle = range / 2;
-    const velX = Math.ceil(Math.random() * range) - middle;
-    const velY = Math.ceil(Math.random() * range) - middle;
-    return [velX, velY];
-  }
-
   function loop(balls: Ball[]) {
     ctx.fillStyle = `rgba(255, 255, 255, 1)`;
     ctx.fillRect(0, 0, width, height);
@@ -46,6 +36,7 @@ addEventListener("DOMContentLoaded", () => {
     for (const ball of balls) {
       ball.draw();
       ball.update();
+      ball.detectCollision();
     }
 
     requestAnimationFrame(() => loop(balls));
