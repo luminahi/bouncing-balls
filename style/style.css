@@ -7,7 +7,25 @@ body {
   margin: 0;
   background-color: black;
 }
-/* 
+
+/*
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(100, 100, 255, 0.5);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 1000px;
+  background-color: pink;
+  opacity: 0.95;
+}
+ 
 canvas {
   background-color: rgb(197, 222, 255);
-} */
+} 
+
+*/
