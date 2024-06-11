@@ -24,6 +24,7 @@ export default class Ball {
   draw() {
     this.ctx.beginPath();
     this.ctx.fillStyle = this.color;
+    // this.ctx.rect(this.x, this.y, this.size, this.size);
     this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     this.ctx.fill();
   }

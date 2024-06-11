@@ -8,16 +8,17 @@ addEventListener("DOMContentLoaded", () => {
   const height = (canvas.height = window.innerHeight);
 
   function genBalls() {
-    const balls = new Array(10).fill({});
+    const balls = new Array(100).fill({});
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < balls.length; i++) {
+      const [velX, velY] = randomDirection(10);
       balls[i] = new Ball(
-        100,
-        100,
-        i + 1,
-        i + 1,
-        "white",
-        10 + i * 2,
+        width / 2,
+        height / 2,
+        velX,
+        velY,
+        "black",
+        randomSize(72, 16),
         ctx,
         width,
         height
@@ -27,8 +28,19 @@ addEventListener("DOMContentLoaded", () => {
     return balls;
   }
 
+  function randomSize(max, min) {
+    return Math.ceil(Math.random() * (max - min)) + min;
+  }
+
+  function randomDirection(range) {
+    const middle = range / 2;
+    const velX = Math.ceil(Math.random() * range) - middle;
+    const velY = Math.ceil(Math.random() * range) - middle;
+    return [velX, velY];
+  }
+
   function loop(balls) {
-    ctx.fillStyle = `rgba(0, 0, 0, 1)`;
+    ctx.fillStyle = `rgba(255, 255, 255, 1)`;
     ctx.fillRect(0, 0, width, height);
 
     for (const ball of balls) {
