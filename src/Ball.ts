@@ -1,15 +1,25 @@
 export default class Ball {
-  /**
-   *
-   * @param {number} x
-   * @param {number} y
-   * @param {number} velX
-   * @param {number} velY
-   * @param {string} color
-   * @param {number} size
-   * @param {CanvasRenderingContext2D} ctx
-   */
-  constructor(x, y, velX, velY, color, size, ctx, screenWidth, screenHeight) {
+  public x: number;
+  public y: number;
+  public velX: number;
+  public velY: number;
+  public color: string;
+  public size: number;
+  public ctx: CanvasRenderingContext2D;
+  public screenWidth: number;
+  public screenHeight: number;
+
+  constructor(
+    x: number,
+    y: number,
+    velX: number,
+    velY: number,
+    color: string,
+    size: number,
+    ctx: CanvasRenderingContext2D,
+    screenWidth: number,
+    screenHeight: number
+  ) {
     this.x = x;
     this.y = y;
     this.velX = velX;
@@ -24,7 +34,6 @@ export default class Ball {
   draw() {
     this.ctx.beginPath();
     this.ctx.fillStyle = this.color;
-    // this.ctx.rect(this.x, this.y, this.size, this.size);
     this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     this.ctx.fill();
   }

@@ -1,14 +1,14 @@
 import Ball from "./Ball.js";
 
 addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
   const width = (canvas.width = window.innerWidth);
   const height = (canvas.height = window.innerHeight);
 
-  function genBalls() {
-    const balls = new Array(100).fill({});
+  function genBalls(): Ball[] {
+    const balls = new Array(10).fill({});
 
     for (let i = 0; i < balls.length; i++) {
       const [velX, velY] = randomDirection(10);
@@ -28,18 +28,18 @@ addEventListener("DOMContentLoaded", () => {
     return balls;
   }
 
-  function randomSize(max, min) {
+  function randomSize(max: number, min: number) {
     return Math.ceil(Math.random() * (max - min)) + min;
   }
 
-  function randomDirection(range) {
+  function randomDirection(range: number) {
     const middle = range / 2;
     const velX = Math.ceil(Math.random() * range) - middle;
     const velY = Math.ceil(Math.random() * range) - middle;
     return [velX, velY];
   }
 
-  function loop(balls) {
+  function loop(balls: Ball[]) {
     ctx.fillStyle = `rgba(255, 255, 255, 1)`;
     ctx.fillRect(0, 0, width, height);
 
