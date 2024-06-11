@@ -1,13 +1,15 @@
+import { randomColor } from "./random.js";
+
 export default class Ball {
-  public x: number;
-  public y: number;
-  public velX: number;
-  public velY: number;
-  public color: string;
-  public size: number;
-  public ctx: CanvasRenderingContext2D;
-  public screenWidth: number;
-  public screenHeight: number;
+  private x: number;
+  private y: number;
+  private velX: number;
+  private velY: number;
+  private color: string;
+  private size: number;
+  private ctx: CanvasRenderingContext2D;
+  private screenWidth: number;
+  private screenHeight: number;
 
   constructor(
     x: number,
@@ -31,14 +33,14 @@ export default class Ball {
     this.screenHeight = screenHeight;
   }
 
-  draw() {
+  public draw() {
     this.ctx.beginPath();
     this.ctx.fillStyle = this.color;
     this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     this.ctx.fill();
   }
 
-  update() {
+  public update() {
     if (this.x + this.size >= this.screenWidth) {
       this.velX = -this.velX;
     }
@@ -57,5 +59,16 @@ export default class Ball {
 
     this.x += this.velX;
     this.y += this.velY;
+  }
+
+  public detectCollision() {
+    if (
+      this.x + this.size >= this.screenWidth ||
+      this.y + this.size >= this.screenHeight ||
+      this.x - this.size <= 0 ||
+      this.y - this.size <= 0
+    ) {
+      this.color = randomColor(200, 20);
+    }
   }
 }
