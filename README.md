@@ -1,6 +1,6 @@
 # Bouncing Balls
 
-## Vanilla js using TypeScript
+## Vanilla JS project using HTML, CSS, TypeScript and ESBuild
 
 - [Instalation](#Installation)
 - [Usage](#Usage)
