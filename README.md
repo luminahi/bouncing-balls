@@ -23,7 +23,7 @@
 
 ## Usage
 
-- run the application
+- Run the application
    ```bash
    npx alive-server
    ```
