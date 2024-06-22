@@ -2,8 +2,9 @@
 
 ## Vanilla JS project using HTML, CSS, TypeScript and ESBuild
 
-- [Instalation](#Installation)
+<!-- - [Instalation](#Installation)
 - [Usage](#Usage)
+-->
 
 ## Installation
 
