@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild src/* --outdir=build/",
-    "watch": "esbuild --watch src/* --outdir=build/"
+    "watch": "esbuild --watch src/* --outdir=build/",
+    "start": "esbuild --serve=localhost:8080 --servedir=."
   },
   "keywords": [],
   "author": "",
