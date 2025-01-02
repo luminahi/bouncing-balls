@@ -12,6 +12,10 @@
    ```bash
    git clone https://github.com/luminahi/bouncing-balls.git
    ```
+- Move to project
+   ```bash
+   cd bouncing-balls
+   ```
 - Install dependencies
    ```bash
    npm install
